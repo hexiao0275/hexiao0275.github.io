@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EarthSynth: Generating Informative Earth Observation with Diffusion Models</title>
+  <link rel="icon" href="./assets/EarthSy.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+<!--  <link rel="icon" href="./static/images/favicon.svg">-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <!-- <script src="./static/js/index.js"></script> -->
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://jaychempan.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+    </div> -->
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> <img width="70" alt="image" src="./assets/EarthSy.png"> <span style="color: #13a432; font-weight: bold;">EarthSynth</span>: Generating Informative Earth Observation with Diffusion Models</h1>
+          <!-- <h2><img class="mini-img"  src="./assets/aaai-logo.png" style="vertical-align: middle;" alt="Logo" width="35"> <font color=#2980B9 size="5">AAAI 2025</font></h2> <br> -->
+          <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+            <!-- <img src="./assets/aaai-logo.png" alt="Logo" width="35" style="margin-right: 10px;"> -->
+            <!-- <span style="color: #2980B9; font-size: 1.8em; font-weight: bold;">AAAI 2025</span> -->
+            <span style="color: #2980B9; font-size: 1.8em; font-weight: bold;">ArXiv 2025</span>
+          </div> <br> 
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=nRPD3tAAAAAJ&hl=en&oi=ao">Jiancheng Pan<sup>*1,3</sup>, </a>
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=k3-RdRgAAAAJ&hl=en">Shiye Lei<sup>*2</sup>, </a>
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=y3Bpp1IAAAAJ&hl=en&oi=ao">Yuqian Fu†<sup>3</sup>, </a>
+            </span>
+            <span class="author-block">
+              <div>Jiahao Li<sup>1</sup>, </div>
+            </span>
+            <span class="author-block">
+              <div>Yanxing Liu<sup>4</sup>, </div>
+            </span><br>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=fWi66HcAAAAJ&hl=en">Xiao He<sup>5</sup>, </a>
+            </span>
+            <span class="author-block">
+              <div>Yuze Sun<sup>1</sup>, </div>  
+            </span>
+            <span class="author-block">
+              <div>Long Peng<sup>6</sup>, </div>  
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=yH9OkqYAAAAJ&hl=en">Xiaomeng Huang†<sup>1</sup></a>,
+              <!-- <div>Xiaomeng Huang†<sup>1</sup></div> -->
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=R3_AR5EAAAAJ&hl=en">Bo Zhao†<sup>7</sup></a>,
+            </span>
+          </div>
+          <br>
+          <h2><font color=#424949 size="3"> <sup>1</sup>Tsinghua University, <sup>2</sup>University of Sydney, <sup>3</sup>INSAIT, Sofia University "St. Kliment Ohridski", <sup>4</sup>University of Chinese Academy of Sciences, <sup>5</sup>Wuhan University, <sup>6</sup>University of Science and Technology of China , <sup>7</sup>Shanghai Jiao Tong University</font></h2>
+          <br>
+          <img width="500" alt="image" src="./assets/inst.png">
+          <br>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2505.12108"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>ArXiv</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/32672"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>AAAI'25</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://github.com/jaychempan/EarthSynth/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/jaychempan/EarthSynth-180K"
+                class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="assets/hf-logo.svg" alt="Hugging Face Icon" style="height: 1.4em; vertical-align: middle;">
+                  </span>
+                    <span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/jaychempan/EarthSynth"
+                class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <img src="assets/hf-logo.svg" alt="Hugging Face Icon" style="height: 1.4em; vertical-align: middle;">
+                    </span>
+                    <span>Model</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+             <span class="link-block">
+               <a href=""
+                  class="external-link button is-normal is-rounded is-dark">
+                 <span class="icon">
+                     <i class="fab fa-youtube"></i>
+                 </span>
+                 <span>Video</span>
+               </a>
+             </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <center>
+            <img src="./assets/EarthSynth-FM.png" width="100%"/>
+            </center>
+            <p>
+              A diffusion-based generative foundation model, <b>EarthSynth</b>, pretrained on multi-source and multi-category data, synthesizing Earth observation with a semantic mask and text for downstream remote sensing image interpretation tasks.
+            </p>
+          </div>
+          <div align="center">
+            <p>A satellite image of <span style="color:inherit;">road</span>.</p>
+              <img src="./assets/gifs/DG_629683_0_road_1.gif" width="18%">
+              <img src="./assets/gifs/DG_629683_0_road_2.gif" width="18%">
+              <img src="./assets/gifs/DG_629683_0_road_3.gif" width="18%">
+              <img src="./assets/gifs/DG_629683_0_road_4.gif" width="18%">
+              <img src="./assets/gifs/DG_629683_0_road_5.gif" width="18%">
+            </div>
+            <div align="center">
+            <p>A satellite image of <span style="color:inherit;">small vehicle</span>.</p>
+              <img src="./assets/gifs/FAST_train_5093_0001_0_small_vehicle_1.gif" width="18%">
+              <img src="./assets/gifs/FAST_train_5093_0001_0_small_vehicle_2.gif" width="18%">
+              <img src="./assets/gifs/FAST_train_5093_0001_0_small_vehicle_3.gif" width="18%">
+              <img src="./assets/gifs/FAST_train_5093_0001_0_small_vehicle_4.gif" width="18%">
+              <img src="./assets/gifs/FAST_train_5093_0001_0_small_vehicle_5.gif" width="18%">
+            </div>
+            <div align="center">
+            <p>A satellite image of <span style="color:inherit;">tree</span>. (Flood)</p>
+              <img src="./assets/gifs/OEMxBD_coxsbazar_56_2_tree_1.gif" width="18%">
+              <img src="./assets/gifs/OEMxBD_coxsbazar_56_2_tree_2.gif" width="18%">
+              <img src="./assets/gifs/OEMxBD_coxsbazar_56_2_tree_3.gif" width="18%">
+              <img src="./assets/gifs/OEMxBD_coxsbazar_56_2_tree_4.gif" width="18%">
+              <img src="./assets/gifs/OEMxBD_coxsbazar_56_2_tree_5.gif" width="18%">
+            </div>
+            <div align="center">
+            <p>A satellite image of <span style="color:inherit;">water</span>.</p>
+              <img src="./assets/gifs/LD_300_0_water_1.gif" width="18%">
+              <img src="./assets/gifs/LD_300_0_water_2.gif" width="18%">
+              <img src="./assets/gifs/LD_300_0_water_3.gif" width="18%">
+              <img src="./assets/gifs/LD_300_0_water_4.gif" width="18%">
+              <img src="./assets/gifs/LD_300_0_water_5.gif" width="18%">
+            </div>
+            <div align="center">
+            <p>A satellite image of <span style="color:inherit;">baseball diamond, vehicle</span>.</p>
+              <img src="./assets/gifs/SIOR_07349_0_1.gif" width="18%">
+              <img src="./assets/gifs/SIOR_07349_0_2.gif" width="18%">
+              <img src="./assets/gifs/SIOR_07349_0_3.gif" width="18%">
+              <img src="./assets/gifs/SIOR_07349_0_4.gif" width="18%">
+              <img src="./assets/gifs/SIOR_07349_0_5.gif" width="18%">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Motivations</h2>
+        <div class="content has-text-justified">
+          <p>
+            <b><font color=#2980B9>Remote sensing image (RSI) interpretation</font></b> is fundamentally constrained by challenges such as severe class imbalance and limited availability of high-quality labeled data, significantly impeding the development of robust models for downstream tasks. However, labeling RSIs typically requires domain-specific expertise and substantial manual effort, making large-scale annotation time-consuming and costly. Consequently, an important research objective is to effectively exploit existing labeled Earth observation (EO) datasets by uncovering latent relationships among samples to improve data efficiency.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Contributions</h2>
+
+        <div class="content has-text-justified">
+          <p>   
+          <p>
+            <b><h3>🌍 EarthSynth and EarthSynth-180K</h3></b></b>
+            <ul>
+              <li>
+                We propose EarthSynth, <b><font color=#2980B9>a diffusion-based generative foundation model</font></b> trained on the EarthSynth-180K dataset with 180K samples aligned image, semantic mask, and text, achieving a unified solution to achieve multi-task generation.
+              </li>
+              </ul> 
+          </p>
+          <p>
+            <b><h3>🛰️ Counterfactual Composition (CF-Comp) and R-Filter</h3></b></b>
+            <ul> 
+              <li>
+                EarthSynth employs the CF-Comp strategy to  <b><font color=#2980B9>balance the layout controllability and category diversity</font></b> during training, enabling fine layout control for RSI generation. It further incorporates the R-Filter to extract more informative and high-quality synthesized samples.
+              </li> 
+          </ul> 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</section>
+
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">EarthSynth-180K Dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+            In addition to the visual examples as shown in the benchmark figure, we further provide more infomations here. <b>All the target datasets could be found on our <a href="https://github.com/jaychempan/LAE-DINO">github repo</a>.</b>
+          </p>
+          <center>
+            <img src="./assets/LAE-1M.png" width="100%"/>
+          </center>
+          <br>
+          <center>
+            <img src="./assets/raw-data-exp.png" width="95%"/>
+          </center>
+          <p>
+            LAE-COD dataset examples: Raw data labelled by LAE-Label engine without rule-based filtering.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">EarthSynth-180K Dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+            EarthSynth-180K is derived from OEM, LoveDA, DeepGlobe, SAMRS, and LAE-1M datasets. It is further enhanced with mask and text prompt conditions, making it suitable for training foundation diffusion-based generative model. The EarthSynth-180K dataset is constructed using the Random Cropping and Category Augmentation strategies.</p>
+          <center>
+            <img src="./assets/EarthSynth-180K-Map.png" width="80%"/>
+            </center>
+            <center>
+              <img src="./assets/EarthSynth-180K.png" width="80%"/>
+              </center>
+  
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">EarthSynth Model</h2>
+        <div class="content has-text-justified">
+          <p>
+            EarthSynth is trained with CF-Comp training strategy on real and unrealistic logical mixed data distribution, learns remote sensing pixel-level properties in multiple dimensions, and builds a unified process for conditional diffusion training and synthesis.</p>
+          <center>
+            <img src="./assets/EarthSynth-Framwork.png" width="100%"/>
+            </center>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation</h2>
+    <b>Please consider cite us if you find our dataset, or model is useful to you.</b>
+    <pre><code>
+      @misc{pan2025earthsynthgeneratinginformativeearth,
+        title={EarthSynth: Generating Informative Earth Observation with Diffusion Models}, 
+        author={Jiancheng Pan and Shiye Lei and Yuqian Fu and Jiahao Li and Yanxing Liu and Yuze Sun and Xiao He and Long Peng and Xiaomeng Huang and Bo Zhao},
+        year={2025},
+        eprint={2505.12108},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2505.12108}, 
+        } 
+    </code></pre>
+  </div>
+</section>
+
+</body>
+</html>
