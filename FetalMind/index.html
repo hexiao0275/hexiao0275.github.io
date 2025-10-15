@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FetalMind: Epistemic-aware Vision–Language Foundation Model for Fetal Ultrasound Interpretation</title>
+  <link rel="icon" href="./assets/fetalmind.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+<!--  <link rel="icon" href="./static/images/favicon.svg">-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <!-- <script src="./static/js/index.js"></script> -->
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://jaychempan.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+    </div> -->
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> <img width="70" alt="image" src="./assets/fetalmind.png"> <span style="color: #2980B9; font-weight: bold;">FetalMind</span>: Epistemic-aware Vision–Language Foundation Model for Fetal Ultrasound Interpretation</h1>
+          <!-- <h2><img class="mini-img"  src="./assets/aaai-logo.png" style="vertical-align: middle;" alt="Logo" width="35"> <font color=#2980B9 size="5">AAAI 2025</font></h2> <br> -->
+          <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+            <!-- <img src="./assets/aaai-logo.png" alt="Logo" width="35" style="margin-right: 10px;"> -->
+            <!-- <span style="color: #2980B9; font-size: 1.8em; font-weight: bold;">AAAI 2025</span> -->
+            <span style="color: #2980B9; font-size: 1.8em; font-weight: bold;">ArXiv 2025</span>
+          </div> <br> 
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=fWi66HcAAAAJ&hl=en&oi=ao">Xiao He<sup>1</sup>, </a>
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=AaQm4aYAAAAJ&hl=en">Huangxuan Zhao†<sup>1</sup>, </a>
+            </span>
+            <span class="author-block">
+              <div>Guojia Wan<sup>1</sup>, </div>
+            </span>
+            <span class="author-block">
+              <div>Yanxing Liu<sup>1</sup>, </div>
+            </span>
+            <span class="author-block">
+              <div>Juhua Liu<sup>1</sup>, </div>
+            </span>
+            <span class="author-block">
+              <div>Yongchao Xu<sup>1</sup>, </div>
+            </span>
+            <span class="author-block">
+              <div>Yong Luo<sup>1</sup>, </div>
+            </span><br>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=RwlJNLcAAAAJ&hl=en"> Dacheng Tao†<sup>2</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=Shy1gnMAAAAJ&hl=en"> Bo Du†<sup>1</sup></a>,
+            </span>
+          </div>
+          <br>
+          <h2><font color=#424949 size="3"> <sup>1</sup>Wuhan University, <sup>2</sup>Nanyang Technological University</font></h2>
+          <br>
+          <img width="500" alt="image" src="./assets/inst.png">
+          <br>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2505.12108"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>ArXiv</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/32672"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>AAAI'25</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://github.com/hexiao0275/FetalMind"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/hexiao0275/FetalMind"
+                class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="assets/hf-logo.svg" alt="Hugging Face Icon" style="height: 1.4em; vertical-align: middle;">
+                  </span>
+                    <span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/jaychempan/EarthSynth"
+                class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <img src="assets/hf-logo.svg" alt="Hugging Face Icon" style="height: 1.4em; vertical-align: middle;">
+                    </span>
+                    <span>Model</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+             <span class="link-block">
+               <a href=""
+                  class="external-link button is-normal is-rounded is-dark">
+                 <span class="icon">
+                     <i class="fab fa-youtube"></i>
+                 </span>
+                 <span>Video</span>
+               </a>
+             </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <center>
+            <img src="./assets/fetalmind_all.png" width="100%"/>
+            </center>
+            <p>
+              A fetal vision–language foundation model, <b>FetalMind</b>, pretrained on multi-center fetal ultrasound data, integrating structured clinical knowledge and reinforcement learning for report generation and diagnostic reasoning across diverse gestational stages.
+            </p>
+          </div>
+          <div align="center">
+            <p>Performance <span style="color:inherit;">road</span>.</p>
+             <img src="./assets/performance.png" width="100%">
+              <img src="./assets/Motivation.png" width="100%">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Motivations</h2>
+        <div class="content has-text-justified">
+          <p>
+            <b><font color=#2980B9>Fetal Ultrasound interpretation</font></b> is fundamentally constrained by challenges such as multi-view heterogeneity, complex fetal anatomy, and a wide spectrum of developmental abnormalities, which collectively hinder the development of robust vision–language models for downstream diagnostic and report generation tasks. Moreover, labeling fetal ultrasound data requires specialized obstetric expertise and careful cross-view correlation, making large-scale annotation both time-consuming and resource-intensive. Consequently, an important research objective is to effectively leverage existing multi-center clinical data by uncovering latent associations among views, diseases, and textual findings to enhance learning efficiency and generalization across gestational stages.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">EarthSynth-180K Dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+            In addition to the visual examples as shown in the benchmark figure, we further provide more infomations here. <b>All the target datasets could be found on our <a href="https://github.com/jaychempan/LAE-DINO">github repo</a>.</b>
+          </p>
+          <center>
+            <img src="./assets/LAE-1M.png" width="100%"/>
+          </center>
+          <br>
+          <center>
+            <img src="./assets/raw-data-exp.png" width="95%"/>
+          </center>
+          <p>
+            LAE-COD dataset examples: Raw data labelled by LAE-Label engine without rule-based filtering.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Obstetric Ultrasound Report (Deep Learning Version)
+        </h2>
+        <div class="content has-text-justified">
+          <p>
+            The generalized version of our obstetric ultrasound report template via deep learning, established with reference to multiple international clinical guidelines. It provides a consistent and clinically grounded format for training and evaluating deep learning systems.</p>
+          <center>
+            <img src="./assets/report_version.png" width="80%"/>
+            </center>
+  
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">EarthSynth Model</h2>
+        <div class="content has-text-justified">
+          <p>
+        Illustration of FetalMind and GPT-5 Case Study. (Case 127858) Correct answer is skeletal dysplasia. GPT-5 misclassified it as normal, while FetalMind correctly identified skeletal dysplasia by integrating multi-view structures and blood flow features.</p>
+          <center>
+            <img src="./assets/show.png" width="100%"/>
+            </center>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation</h2>
+    <b>Please consider cite us if you find our dataset, or model is useful to you.</b>
+    <pre><code>
+      @misc{pan2025earthsynthgeneratinginformativeearth,
+        title={EarthSynth: Generating Informative Earth Observation with Diffusion Models}, 
+        author={Jiancheng Pan and Shiye Lei and Yuqian Fu and Jiahao Li and Yanxing Liu and Yuze Sun and Xiao He and Long Peng and Xiaomeng Huang and Bo Zhao},
+        year={2025},
+        eprint={2505.12108},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2505.12108}, 
+        } 
+    </code></pre>
+  </div>
+</section>
+
+</body>
+</html> -->
